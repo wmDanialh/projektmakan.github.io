@@ -168,7 +168,3 @@ window.addEventListener("mousemove", function (event) {
   }
 
 });
-
-flatpickr('.input-field', {
-  dateFormat: 'D-m-Y'
-});

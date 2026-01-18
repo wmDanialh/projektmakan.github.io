@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery | Projekt Makan</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<style>
+
+  .menu-filters{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin: 20px 0 30px;
+  }
+
+  .filter-btn{
+    padding: 10px 18px;
+    border-radius: 999px;
+    border: 2px solid #f4b400;
+    background: transparent;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .filter-btn.active{
+    background:#f4b400;
+  }
+
+  /* Gallery grid */
+  .gallery-grid2{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 20px;
+  }
+
+  .g-item{
+    border-radius: 14px;
+    overflow: hidden;
+    cursor: pointer;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.08);
+  }
+
+  .g-item img{
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    transition: transform .25s ease;
+  }
+
+  .g-item:hover img{
+    transform: scale(1.03);
+  }
+
+  /* responsive */
+  @media(max-width: 900px){
+    .gallery-grid2{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .g-item img{ height: 230px; }
+  }
+  @media(max-width: 600px){
+    .gallery-grid2{ grid-template-columns: 1fr; }
+    .g-item img{ height: 260px; }
+  }
+
+  /* Lightbox */
+  .lightbox{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    padding: 18px;
+  }
+
+  .lightbox.open{ display: flex; }
+
+  .lightbox img{
+    max-width: min(1000px, 92vw);
+    max-height: 82vh;
+    border-radius: 14px;
+  }
+
+  .lb-btn{
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    border: none;
+    background: rgba(255,255,255,0.95);
+    cursor: pointer;
+    font-size: 22px;
+    display: grid;
+    place-items: center;
+  }
+
+  .lb-close{ top: 18px; right: 18px; }
+  .lb-prev{ left: 18px; }
+  .lb-next{ right: 18px; }
+
+  @media(max-width: 520px){
+    .lb-prev, .lb-next{ display: none; } /* swipe/tap only */
+  }
+
+  /* Gallery-only fixes */
+  .gallery-page{
+    max-width:1100px;
+    margin: auto;
+    padding: 50px 25px;
+  }
+
+  /* Make sure grid doesn’t collapse / overlap */
+  .gallery-page .gallery-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+
+  .gallery-page .gallery-item{
+    border-radius: 12px;
+    overflow: hidden;
+    background: #f2f2f2;
+    height: 210px;              /* IMPORTANT: prevents weird overlay */
+  }
+
+  .gallery-page .gallery-item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display:block;
+  }
+
+  .gallery-category{
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .gallery-category h3{
+    margin-bottom: 14px;
+    font-size: 1.4rem;
+  }
+
+  /* Responsive grid */
+  @media(max-width: 900px){
+    .gallery-page .gallery-grid{ grid-template-columns: repeat(2, 1fr); }
+  }
+  @media(max-width: 520px){
+    .gallery-page .gallery-grid{ grid-template-columns: 1fr; }
+    .gallery-page .gallery-item{ height: 240px; }
+  }
+
+</style>
+<body>
+
+<header>
+  <nav>
+    <h2>Projekt Makan</h2>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <ul id="navMenu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="career.html">Career</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- HERO (optional but recommended) -->
+<section class="hero">
+  <h1>Gallery</h1>
+  <p>Gambar makanan & suasana Projek Makan</p>
+</section>
+
+<!-- WHITE AREA -->
+<main class="wrapper content-layer gallery-page">
+
+  <div class="section-header">
+    <h2>Gallery</h2>
+    <p>Gambar makanan & suasana Projek Makan</p>
+  </div>
+
+  <!-- CATEGORY FILTER -->
+  <div class="menu-filters">
+    <button type="button" class="filter-btn active" data-filter="all">All</button>
+    <button type="button" class="filter-btn" data-filter="hidangan">Hidangan</button>
+    <button type="button" class="filter-btn" data-filter="suasana">Suasana</button>
+    <button type="button" class="filter-btn" data-filter="moments">Moments</button>
+    <button type="button" class="filter-btn" data-filter="team">Team</button>
+  </div>
+
+  <!-- HIDANGAN -->
+  <section class="gallery-category" data-section="hidangan">
+    <h3>Hidangan</h3>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1"></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe"></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c"></div>
+    </div>
+  </section>
+
+  <!-- SUASANA -->
+  <section class="gallery-category" data-section="suasana">
+    <h3>Suasana</h3>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836"></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1551218808-94e220e084d2"></div>
+    </div>
+  </section>
+
+  <!-- MOMENTS -->
+  <section class="gallery-category" data-section="moments">
+    <h3>Moments</h3>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1604908177522-402f87c8c5c5"></div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="gallery-category" data-section="team">
+    <h3>Team</h3>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1528712306091-ed0763094c98"></div>
+    </div>
+  </section>
+
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+
+    <p>&copy; 2026 Projekt Makan Kuantan</p>
+
+    <div class="social-links">
+      <a href="https://www.facebook.com/projektmakankuantan" target="_blank" aria-label="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-3h2.5V9.5A3.5 3.5 0 0 1 14.3 6h2.7v3h-2c-.9 0-1.2.4-1.2 1.1V12H17l-.5 3h-2.7v7A10 10 0 0 0 22 12z"/></svg>
+      </a>
+
+      <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.9.3 2.4.5.6.2 1 .5 1.5 1 .5.5.8.9 1 1.5.2.5.4 1.2.5 2.4.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.9-.5 2.4-.2.6-.5 1-.9 1.5-.5.5-.9.8-1.5 1-.5.2-1.2.4-2.4.5-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.9-.3-2.4-.5-.6-.2-1-.5-1.5-1-.5-.5-.8-.9-1-1.5-.2-.5-.4-1.2-.5-2.4-.1-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.3-1.9.5-2.4.2-.6.5-1 .9-1.5.5-.5.9-.8 1.5-1 .5-.2 1.2-.4 2.4-.5C8.4 2.2 8.8 2.2 12 2.2zM12 6.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11zm0 9a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7zm5.8-9.9a1.3 1.3 0 1 1-2.6 0 1.3 1.3 0 0 1 2.6 0z"/></svg>
+      </a>
+
+      <a href="https://wa.me/601XXXXXXXX" target="_blank" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5 14.6c-.2.6-1.1 1.1-1.5 1.1-.4.1-.9.1-3-.6-2.6-1-4.2-3.6-4.3-3.8-.1-.2-1-1.3-1-2.5s.6-1.8.9-2c.3-.3.6-.4.9-.4h.6c.2 0 .4 0 .6.5.2.6.8 2 .9 2.1.1.2.1.4 0 .6-.1.2-.2.4-.4.6-.2.2-.4.4-.6.6-.2.2-.4.4-.2.7.2.3.9 1.4 2 2.3 1.4 1.1 2.6 1.5 3 .1.4-.1.6-.4.8-.7.2-.3.9-1 .9-1.3.1-.3.2-.3.4-.2.2.1 1.3.6 1.6.8.3.1.5.2.6.4.1.1.1.6-.1 1.2z"/></svg>
+      </a>
+    </div>
+
+  </div>
+</footer>
+<script src="js/index.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const buttons = document.querySelectorAll(".filter-btn");
+    const sections = document.querySelectorAll(".gallery-category");
+
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        buttons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        const filter = btn.dataset.filter;
+
+        sections.forEach(sec => {
+          const match =
+                  filter === "all" || sec.dataset.section === filter;
+          sec.style.display = match ? "" : "none";
+        });
+
+        // Scroll nicely to first visible section
+        const firstVisible = [...sections].find(s => s.style.display !== "none");
+        if (firstVisible) {
+          firstVisible.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    });
+  });
+</script>
+
+
+</body>
+</html>

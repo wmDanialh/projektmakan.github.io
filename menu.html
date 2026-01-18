@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu | Projekt Makan</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Small extra CSS just for menu page (safe to keep here) -->
+  <style>
+
+    .menu-filters{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:center;
+      margin: 10px 0 30px;
+    }
+
+    .filter-btn{
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 2px solid #f4b400;
+      background: transparent;
+      color: #111;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .filter-btn.active{
+      background:#f4b400;
+      color:#111;
+    }
+
+    /* Text-only menu leader dots */
+    .menu-list{ margin-top: 18px; }
+    .menu-item{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin: 10px 0;
+    }
+
+    .menu-item .food-name{ white-space: nowrap; }
+    .menu-item::after{
+      content:"";
+      flex:1;
+      border-bottom: 1px dotted #999;
+      margin: 0 10px;
+    }
+    .menu-item .food-price{
+      white-space: nowrap;
+      font-weight: bold;
+    }
+
+
+
+    .menu-page { padding: 60px 20px; max-width: 1100px; margin: auto; }
+    .menu-note { text-align:center; opacity:.8; margin-top: 10px; }
+
+    .category {
+    }
+
+    .category h2 {
+      text-align: center;
+    }
+
+    .category p {
+      text-align: center;
+      margin-bottom: 18px;
+      opacity: .8;
+    }
+
+    /* Photo menu grid */
+    .menu-grid-photos{
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 14px;
+    }
+
+    .menu-photo-item{
+      background: rgba(255,255,255,0.95);
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .menu-photo-item img{
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .menu-photo-body{
+      padding: 14px;
+    }
+
+    .menu-photo-top{
+      display:flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: baseline;
+      margin-bottom: 6px;
+    }
+
+    .menu-photo-top h3{
+      font-size: 1.05rem;
+      margin: 0;
+    }
+
+    .price{
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .desc{
+      opacity: .85;
+      font-size: .95rem;
+      margin-top: 6px;
+      line-height: 1.6;
+    }
+
+    /* Mobile */
+    @media (max-width: 900px){
+      .menu-grid-photos{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 600px){
+      .menu-grid-photos{ grid-template-columns: 1fr; }
+      .menu-photo-item img{ height: 200px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<header>
+  <nav>
+    <h2>Projekt Makan</h2>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <ul id="navMenu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html" style="color:#f4b400">Menu</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="career.html">Career</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero hero-small">
+  <div class="hero-inner">
+    <h1>Menu Lengkap</h1>
+    <p>Pilih ikut kategori. Harga boleh berubah mengikut semasa.</p>
+    <p class="menu-note">Tip: Tukar gambar kepada gambar kedai sendiri untuk nampak lebih “real”.</p>
+  </div>
+</section>
+
+<section class="content-layer">
+  <div class="wrapper">
+
+    <!-- CATEGORY FILTER -->
+    <div class="menu-filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="signature">Signature</button>
+      <button class="filter-btn" data-filter="western">Western</button>
+      <button class="filter-btn" data-filter="snacks">Snacks</button>
+      <button class="filter-btn" data-filter="beverages">Beverages</button>
+    </div>
+
+    <div class="menu-page">
+
+      <!-- SIGNATURE -->
+      <div class="category" data-section="signature">
+        <h2>Signature Picks</h2>
+        <p>Cadangan kalau first time datang.</p>
+
+        <div class="menu-grid-photos">
+          <div class="menu-photo-item" data-cat="signature">
+            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1200&q=60" alt="Nasi Ayam Special">
+            <div class="menu-photo-body">
+              <div class="menu-photo-top">
+                <h3>Nasi Ayam Special</h3><span class="price">RM 8.00</span>
+              </div>
+              <div class="desc">Ayam juicy + nasi beraroma. Simple tapi padu.</div>
+            </div>
+          </div>
+
+          <div class="menu-photo-item" data-cat="signature">
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1200&q=60" alt="Burger Projek">
+            <div class="menu-photo-body">
+              <div class="menu-photo-top">
+                <h3>Burger Projek</h3><span class="price">RM 10.00</span>
+              </div>
+              <div class="desc">Daging tebal + sos padu. Memang puas hati.</div>
+            </div>
+          </div>
+
+          <div class="menu-photo-item" data-cat="western">
+            <img src="https://images.unsplash.com/photo-1604908177522-402f87c8c5c5?auto=format&fit=crop&w=1200&q=60" alt="Chicken Chop">
+            <div class="menu-photo-body">
+              <div class="menu-photo-top">
+                <h3>Chicken Chop</h3><span class="price">RM 12.00</span>
+              </div>
+              <div class="desc">Rangup luar, juicy dalam. Sesuai blackpepper / mushroom.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-list">
+          <div class="menu-item" data-cat="signature">
+            <span class="food-name">Nasi Ayam Special</span>
+            <span class="food-price">RM 8.00</span>
+          </div>
+          <div class="menu-item" data-cat="western">
+            <span class="food-name">Chicken Chop</span>
+            <span class="food-price">RM 12.00</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- WESTERN / PASTA -->
+      <div class="category" data-section="western">
+        <h2>Pasta</h2>
+        <p>Pasta style western — yang selalu jadi pilihan.</p>
+
+        <div class="menu-grid-photos">
+          <div class="menu-photo-item" data-cat="western">
+            <img src="https://images.unsplash.com/photo-1523986371872-9d3ba2e2f642?auto=format&fit=crop&w=1200&q=60" alt="Spaghetti Alfredo + Chicken Chop">
+            <div class="menu-photo-body">
+              <div class="menu-photo-top">
+                <h3>Spaghetti Alfredo + Chicken Chop</h3><span class="price">RM —</span>
+              </div>
+              <div class="desc">Creamy alfredo + chicken chop (popular combo).</div>
+            </div>
+          </div>
+
+          <div class="menu-photo-item" data-cat="western">
+            <img src="https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?auto=format&fit=crop&w=1200&q=60" alt="Spaghetti Spicy Buttermilk + Chicken Popcorn">
+            <div class="menu-photo-body">
+              <div class="menu-photo-top">
+                <h3>Spaghetti Spicy Buttermilk + Chicken Popcorn</h3><span class="price">RM —</span>
+              </div>
+              <div class="desc">Buttermilk pedas + chicken popcorn.</div>
+            </div>
+          </div>
+
+          <div class="menu-photo-item" data-cat="western">
+            <img src="https://images.unsplash.com/photo-1526318896980-cf78c088247c?auto=format&fit=crop&w=1200&q=60" alt="Aglio Olio Chicken">
+            <div class="menu-photo-body">
+              <div class="menu-photo-top">
+                <h3>Aglio Olio Chicken</h3><span class="price">RM —</span>
+              </div>
+              <div class="desc">Garlic + olive oil style. Ringan tapi kick.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-list">
+          <div class="menu-item" data-cat="western">
+            <span class="food-name">Spaghetti Carbonara</span>
+            <span class="food-price">RM —</span>
+          </div>
+          <div class="menu-item" data-cat="western">
+            <span class="food-name">Fish & Chips</span>
+            <span class="food-price">RM —</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SNACKS -->
+      <div class="category" data-section="snacks">
+        <h2>Snacks</h2>
+        <p>Ringan-ringan sambil lepak.</p>
+
+        <div class="menu-grid-photos">
+          <div class="menu-photo-item" data-cat="snacks">
+            <img src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?auto=format&fit=crop&w=1200&q=60" alt="Fries">
+            <div class="menu-photo-body">
+              <div class="menu-photo-top">
+                <h3>Fries</h3><span class="price">RM 5.00</span>
+              </div>
+              <div class="desc">Rangup + sesuai untuk share.</div>
+            </div>
+          </div>
+
+          <div class="menu-photo-item" data-cat="snacks">
+            <img src="https://images.unsplash.com/photo-1548340748-6d2b7d7da280?auto=format&fit=crop&w=1200&q=60" alt="Nugget">
+            <div class="menu-photo-body">
+              <div class="menu-photo-top">
+                <h3>Nugget</h3><span class="price">RM 6.00</span>
+              </div>
+              <div class="desc">Snack simple, favourite semua umur.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-list">
+          <div class="menu-item" data-cat="snacks">
+            <span class="food-name">Onion Ring</span>
+            <span class="food-price">RM —</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- BEVERAGES -->
+      <div class="category" data-section="beverages">
+        <h2>Drinks</h2>
+        <p>Sejuk & menyegarkan.</p>
+
+        <div class="menu-grid-photos">
+          <div class="menu-photo-item" data-cat="beverages">
+            <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=1200&q=60" alt="Teh Ais">
+            <div class="menu-photo-body">
+              <div class="menu-photo-top">
+                <h3>Teh Ais</h3><span class="price">RM 3.00</span>
+              </div>
+              <div class="desc">Classic, sejuk, ngam.</div>
+            </div>
+          </div>
+
+          <div class="menu-photo-item" data-cat="beverages">
+            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1200&q=60" alt="Kopi Ais">
+            <div class="menu-photo-body">
+              <div class="menu-photo-top">
+                <h3>Kopi Ais</h3><span class="price">RM 3.50</span>
+              </div>
+              <div class="desc">Coffee lover wajib cuba.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-list">
+          <div class="menu-item" data-cat="beverages">
+            <span class="food-name">Air Special</span>
+            <span class="food-price">RM 4.00</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="center-btn" style="margin-top: 45px;">
+        <a href="index.html" class="btn secondary">Back to Home</a>
+        <a href="contact.html" class="btn">Order / Contact</a>
+      </div>
+
+    </div><!-- /.menu-page -->
+
+  </div><!-- /.wrapper -->
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+
+    <p>&copy; 2026 Projekt Makan Kuantan</p>
+
+    <div class="social-links">
+      <a href="https://www.facebook.com/projektmakankuantan" target="_blank" aria-label="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-3h2.5V9.5A3.5 3.5 0 0 1 14.3 6h2.7v3h-2c-.9 0-1.2.4-1.2 1.1V12H17l-.5 3h-2.7v7A10 10 0 0 0 22 12z"/></svg>
+      </a>
+
+      <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.9.3 2.4.5.6.2 1 .5 1.5 1 .5.5.8.9 1 1.5.2.5.4 1.2.5 2.4.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.9-.5 2.4-.2.6-.5 1-.9 1.5-.5.5-.9.8-1.5 1-.5.2-1.2.4-2.4.5-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.9-.3-2.4-.5-.6-.2-1-.5-1.5-1-.5-.5-.8-.9-1-1.5-.2-.5-.4-1.2-.5-2.4-.1-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.3-1.9.5-2.4.2-.6.5-1 .9-1.5.5-.5.9-.8 1.5-1 .5-.2 1.2-.4 2.4-.5C8.4 2.2 8.8 2.2 12 2.2zM12 6.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11zm0 9a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7zm5.8-9.9a1.3 1.3 0 1 1-2.6 0 1.3 1.3 0 0 1 2.6 0z"/></svg>
+      </a>
+
+      <a href="https://wa.me/601XXXXXXXX" target="_blank" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5 14.6c-.2.6-1.1 1.1-1.5 1.1-.4.1-.9.1-3-.6-2.6-1-4.2-3.6-4.3-3.8-.1-.2-1-1.3-1-2.5s.6-1.8.9-2c.3-.3.6-.4.9-.4h.6c.2 0 .4 0 .6.5.2.6.8 2 .9 2.1.1.2.1.4 0 .6-.1.2-.2.4-.4.6-.2.2-.4.4-.6.6-.2.2-.4.4-.2.7.2.3.9 1.4 2 2.3 1.4 1.1 2.6 1.5 3 .1.4-.1.6-.4.8-.7.2-.3.9-1 .9-1.3.1-.3.2-.3.4-.2.2.1 1.3.6 1.6.8.3.1.5.2.6.4.1.1.1.6-.1 1.2z"/></svg>
+      </a>
+    </div>
+
+  </div>
+</footer>
+<script src="js/index.js"></script>
+<script>
+  // MENU CATEGORY FILTER (pictures + text list)
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const sections = document.querySelectorAll('.category');
+
+  function applyFilter(filter) {
+    sections.forEach(sec => {
+      const photoItems = sec.querySelectorAll('.menu-photo-item[data-cat]');
+      const listItems  = sec.querySelectorAll('.menu-item[data-cat]');
+
+      // filter photo items
+      photoItems.forEach(el => {
+        const ok = (filter === 'all' || el.dataset.cat === filter);
+        el.style.display = ok ? '' : 'none';
+      });
+
+      // filter list items (leader dots)
+      listItems.forEach(el => {
+        const ok = (filter === 'all' || el.dataset.cat === filter);
+        el.style.display = ok ? 'flex' : 'none';
+      });
+
+      // hide entire category if nothing visible inside it
+      const visiblePhotos = sec.querySelectorAll('.menu-photo-item[data-cat]:not([style*="display: none"])').length;
+      const visibleList   = sec.querySelectorAll('.menu-item[data-cat]:not([style*="display: none"])').length;
+
+      sec.style.display = (visiblePhotos || visibleList) ? '' : 'none';
+    });
+
+    // ✅ after layout updates, scroll to first visible category
+    requestAnimationFrame(() => {
+      const firstVisible = document.querySelector('.category:not([style*="display: none"])');
+      if (firstVisible) firstVisible.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      applyFilter(btn.dataset.filter);
+    });
+  });
+
+  applyFilter('all');
+
+
+  function scrollToFirstVisibleCategory() {
+    const firstVisible = document.querySelector('.category:not([style*="display: none"])');
+    if (firstVisible) {
+      firstVisible.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      applyFilter(btn.dataset.filter);
+
+      // ✅ Fix the “gap” feeling
+      scrollToFirstVisibleCategory();
+    });
+  });
+
+</script>
+
+
+</body>
+</html>

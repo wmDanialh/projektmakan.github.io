@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projekt Makan Kuantan</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <nav>
+    <h2>Projekt Makan</h2>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <ul id="navMenu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="career.html">Career</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section id="home" class="hero">
+  <h1>Projekt Makan Kuantan</h1>
+  <p>Makan Simple, Rasa Padu</p>
+  <div class="center-btn">
+    <a href="#menu" class="btn">Explore</a>
+    <a href="menu.html" class="btn secondary">Discover More</a>
+  </div>
+</section>
+
+<section id="menu" class="content-layer">
+  <div class="section-header">
+    <h2>Our Menu</h2>
+    <p>Signature pilihan pelanggan. Auto slide, boleh swipe atau tekan butang.</p>
+  </div>
+
+  <div class="carousel-wrap" data-carousel="menu">
+    <button class="carousel-btn prev" aria-label="Previous">‹</button>
+    <div class="carousel-track">
+      <div class="slide">
+        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c" alt="Nasi Ayam Special" loading="lazy" decoding="async" />
+        <h3>Nasi Ayam Special</h3>
+        <p>Ayam juicy + nasi beraroma</p>
+      </div>
+      <div class="slide">
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd" alt="Burger Projek" loading="lazy" decoding="async" />
+        <h3>Burger Projek</h3>
+        <p>Daging tebal, sos padu</p>
+      </div>
+      <div class="slide">
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd" alt="Chicken Chop" loading="lazy" decoding="async" />
+        <h3>Chicken Chop</h3>
+        <p>Rangup luar, lembut dalam</p>
+      </div>
+      <div class="slide">
+        <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe" alt="Pasta" loading="lazy" decoding="async" />
+        <h3>Pasta</h3>
+        <p>Creamy, padu, puas hati</p>
+      </div>
+      <div class="slide">
+        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1" alt="Rice Bowl" loading="lazy" decoding="async" />
+        <h3>Rice Bowl</h3>
+        <p>Simple, cepat, sedap</p>
+      </div>
+    </div>
+    <button class="carousel-btn next" aria-label="Next">›</button>
+    <div class="dots" aria-label="Carousel pagination"></div>
+  </div>
+
+  <div class="center-btn"><a href="menu.html" class="btn">Discover More</a></div>
+</section>
+
+<section id="gallery" class="content-layer">
+  <div class="section-header">
+    <h2>Our Gallery</h2>
+    <p>Auto slide, boleh swipe atau tekan butang.</p>
+  </div>
+
+  <div class="carousel-wrap" data-carousel="gallery">
+    <button class="carousel-btn prev" aria-label="Previous">‹</button>
+    <div class="carousel-track">
+      <div class="slide">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836" alt="Suasana" loading="lazy" decoding="async" />
+        <h3>Suasana</h3>
+        <p>Vibe santai untuk semua</p>
+      </div>
+      <div class="slide">
+        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1" alt="Hidangan" loading="lazy" decoding="async" />
+        <h3>Hidangan</h3>
+        <p>Rasa konsisten, padu</p>
+      </div>
+      <div class="slide">
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd" alt="Menu" loading="lazy" decoding="async" />
+        <h3>Menu</h3>
+        <p>Signature pilihan ramai</p>
+      </div>
+      <div class="slide">
+        <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe" alt="Dessert" loading="lazy" decoding="async" />
+        <h3>Moments</h3>
+        <p>Datang, makan, repeat</p>
+      </div>
+      <div class="slide">
+        <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2" alt="Cafe" loading="lazy" decoding="async" />
+        <h3>Team</h3>
+        <p>Servis cepat & mesra</p>
+      </div>
+    </div>
+    <button class="carousel-btn next" aria-label="Next">›</button>
+    <div class="dots" aria-label="Carousel pagination"></div>
+  </div>
+
+  <div class="center-btn"><a href="gallery.html" class="btn">Discover More</a></div>
+</section>
+
+<section id="career" class="content-layer">
+  <div class="section-header">
+    <h2>Career</h2>
+    <p>Sertai pasukan Projek Makan</p>
+  </div>
+  <div class="career-grid">
+    <div class="card"><h3>Kitchen Crew</h3><p>Full-time / Part-time</p></div>
+    <div class="card"><h3>Service Crew</h3><p>Friendly & berdisiplin</p></div>
+    <div class="card"><h3>Cashier</h3><p>Teliti & bertanggungjawab</p></div>
+  </div>
+  <div class="center-btn"><a href="career.html" class="btn">Discover More</a></div>
+</section>
+
+<section id="about" class="content-layer">
+  <div class="section-header">
+    <h2>About Us</h2>
+    <p>Makanan sedap tak perlu rumit — yang penting rasa kena.</p>
+  </div>
+
+  <div style="max-width: 900px; margin: 0 auto; font-size: 1.05rem; line-height: 1.9;">
+    <p>
+      <strong>Projekt Makan Kuantan</strong> lahir daripada satu idea yang sederhana: menjadikan makanan harian terasa lebih istimewa.
+      Kami fokus pada rasa yang konsisten, servis yang mesra, dan pengalaman makan yang membuatkan anda nak datang lagi.
+    </p>
+    <p style="margin-top: 16px;">
+      Dari dapur ke meja pelanggan, setiap hidangan disediakan dengan teliti.
+      Sama ada untuk makan cepat, lepak santai, atau dinner dengan keluarga — kami nak anda rasa puas, bukan sekadar kenyang.
+    </p>
+    <p style="margin-top: 16px;">
+      <strong>Simple, padu, dan jujur</strong> — itulah identiti kami.
+    </p>
+  </div>
+
+  <div class="center-btn"><a href="about.html" class="btn">Discover More</a></div>
+</section>
+
+<section id="contact" class="content-layer">
+  <div class="section-header">
+    <h2>Contact</h2>
+    <p>Map di atas, detail & form di bawah.</p>
+  </div>
+
+  <!-- Map on top -->
+  <iframe class="contact-map" src="https://www.google.com/maps?q=kuantan%20pahang&output=embed" loading="lazy"></iframe>
+
+  <!-- Details + form under map -->
+  <div class="contact-bottom">
+    <div class="contact-box">
+      <h3>📌 Maklumat</h3>
+      <p><strong>Telefon:</strong> 01X-XXXXXXX</p>
+      <p><strong>WhatsApp:</strong> 01X-XXXXXXX</p>
+      <p><strong>Email:</strong> your@email.com</p>
+      <p><strong>Alamat:</strong> Kuantan, Pahang</p>
+      <p><strong>Waktu Operasi:</strong> Setiap hari • 12:00 PM – 10:00 PM</p>
+    </div>
+
+    <div class="contact-box">
+      <h3>✉️ Hantar Mesej</h3>
+      <form onsubmit="event.preventDefault(); alert('Message sent!')">
+        <input type="text" placeholder="Name" required />
+        <input type="email" placeholder="Email" required />
+        <textarea rows="4" placeholder="Message" required></textarea>
+        <button type="submit" class="send">Send Message</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="center-btn"><a href="contact.html" class="btn">Discover More</a></div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+
+    <p>&copy; 2026 Projekt Makan Kuantan</p>
+
+    <div class="social-links">
+      <a href="https://www.facebook.com/projektmakankuantan" target="_blank" aria-label="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-3h2.5V9.5A3.5 3.5 0 0 1 14.3 6h2.7v3h-2c-.9 0-1.2.4-1.2 1.1V12H17l-.5 3h-2.7v7A10 10 0 0 0 22 12z"/></svg>
+      </a>
+
+      <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.9.3 2.4.5.6.2 1 .5 1.5 1 .5.5.8.9 1 1.5.2.5.4 1.2.5 2.4.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.9-.5 2.4-.2.6-.5 1-.9 1.5-.5.5-.9.8-1.5 1-.5.2-1.2.4-2.4.5-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.9-.3-2.4-.5-.6-.2-1-.5-1.5-1-.5-.5-.8-.9-1-1.5-.2-.5-.4-1.2-.5-2.4-.1-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.3-1.9.5-2.4.2-.6.5-1 .9-1.5.5-.5.9-.8 1.5-1 .5-.2 1.2-.4 2.4-.5C8.4 2.2 8.8 2.2 12 2.2zM12 6.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11zm0 9a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7zm5.8-9.9a1.3 1.3 0 1 1-2.6 0 1.3 1.3 0 0 1 2.6 0z"/></svg>
+      </a>
+
+      <a href="https://wa.me/601XXXXXXXX" target="_blank" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5 14.6c-.2.6-1.1 1.1-1.5 1.1-.4.1-.9.1-3-.6-2.6-1-4.2-3.6-4.3-3.8-.1-.2-1-1.3-1-2.5s.6-1.8.9-2c.3-.3.6-.4.9-.4h.6c.2 0 .4 0 .6.5.2.6.8 2 .9 2.1.1.2.1.4 0 .6-.1.2-.2.4-.4.6-.2.2-.4.4-.6.6-.2.2-.4.4-.2.7.2.3.9 1.4 2 2.3 1.4 1.1 2.6 1.5 3 .1.4-.1.6-.4.8-.7.2-.3.9-1 .9-1.3.1-.3.2-.3.4-.2.2.1 1.3.6 1.6.8.3.1.5.2.6.4.1.1.1.6-.1 1.2z"/></svg>
+      </a>
+    </div>
+
+  </div>
+</footer>
+
+
+<script src="js/index.js"></script>
+
+</body>
+</html>

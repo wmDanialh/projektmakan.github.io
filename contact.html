@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Projekt Makan</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header>
+  <nav>
+    <h2>Projekt Makan</h2>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <ul id="navMenu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="career.html">Career</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero hero-small">
+  <div class="hero-inner">
+    <h1>Contact</h1>
+    <p>Pertanyaan, booking, kerjasama, atau permohonan kerja.</p>
+  </div>
+</section>
+
+<section id="menu" class="content-layer">
+  <div class="wrapper">
+    <section>
+      <div class="section-header">
+        <h2>Contact Details</h2>
+        <p>Paling cepat: WhatsApp / Call</p>
+      </div>
+      <br>
+      <div class="contact-grid">
+        <div class="contact-box">
+          <h3>📍 Location</h3>
+          <p>Kuantan, Pahang</p>
+        </div>
+        <br>
+
+        <div class="contact-box">
+          <h3>☎️ Phone</h3>
+          <p>01X-XXXXXXX</p>
+        </div>
+        <br>
+
+        <div class="contact-box">
+          <h3>🕒 Operating Hours</h3>
+          <p>Everyday 5pm – 12am</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-header">
+        <h2>Send Message</h2>
+        <p>Kami akan reply secepat mungkin.</p>
+      </div>
+
+      <form onsubmit="event.preventDefault(); alert('Message sent!')">
+        <input type="text" placeholder="Name" required />
+        <input type="email" placeholder="Email" required />
+        <textarea rows="5" placeholder="Message"></textarea>
+        <button type="submit" class="btn">Send</button>
+      </form>
+      <br>
+
+      <iframe
+              src="https://maps.google.com/maps?q=kuantan&t=&z=13&ie=UTF8&iwloc=&output=embed"
+              width="100%" height="320"></iframe>
+    </section>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+
+    <p>&copy; 2026 Projekt Makan Kuantan</p>
+
+    <div class="social-links">
+      <a href="https://www.facebook.com/projektmakankuantan" target="_blank" aria-label="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-3h2.5V9.5A3.5 3.5 0 0 1 14.3 6h2.7v3h-2c-.9 0-1.2.4-1.2 1.1V12H17l-.5 3h-2.7v7A10 10 0 0 0 22 12z"/></svg>
+      </a>
+
+      <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.9.3 2.4.5.6.2 1 .5 1.5 1 .5.5.8.9 1 1.5.2.5.4 1.2.5 2.4.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.9-.5 2.4-.2.6-.5 1-.9 1.5-.5.5-.9.8-1.5 1-.5.2-1.2.4-2.4.5-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.9-.3-2.4-.5-.6-.2-1-.5-1.5-1-.5-.5-.8-.9-1-1.5-.2-.5-.4-1.2-.5-2.4-.1-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.3-1.9.5-2.4.2-.6.5-1 .9-1.5.5-.5.9-.8 1.5-1 .5-.2 1.2-.4 2.4-.5C8.4 2.2 8.8 2.2 12 2.2zM12 6.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11zm0 9a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7zm5.8-9.9a1.3 1.3 0 1 1-2.6 0 1.3 1.3 0 0 1 2.6 0z"/></svg>
+      </a>
+
+      <a href="https://wa.me/601XXXXXXXX" target="_blank" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5 14.6c-.2.6-1.1 1.1-1.5 1.1-.4.1-.9.1-3-.6-2.6-1-4.2-3.6-4.3-3.8-.1-.2-1-1.3-1-2.5s.6-1.8.9-2c.3-.3.6-.4.9-.4h.6c.2 0 .4 0 .6.5.2.6.8 2 .9 2.1.1.2.1.4 0 .6-.1.2-.2.4-.4.6-.2.2-.4.4-.6.6-.2.2-.4.4-.2.7.2.3.9 1.4 2 2.3 1.4 1.1 2.6 1.5 3 .1.4-.1.6-.4.8-.7.2-.3.9-1 .9-1.3.1-.3.2-.3.4-.2.2.1 1.3.6 1.6.8.3.1.5.2.6.4.1.1.1.6-.1 1.2z"/></svg>
+      </a>
+    </div>
+
+  </div>
+</footer>
+<script src="js/index.js"></script>
+</body>
+</html>
